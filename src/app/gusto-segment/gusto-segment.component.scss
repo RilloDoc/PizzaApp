@@ -1,0 +1,21 @@
+.gusto {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex: 1;
+  height: 48px;
+  border: 1px solid #444;
+  margin: 1px;
+  border-radius: 10px;
+  text-align: center;
+
+}
+.name {
+  color: white;
+  background-color: #000A;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+  align-self: center;
+  justify-self: center;
+}

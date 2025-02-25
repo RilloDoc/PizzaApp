@@ -18,4 +18,9 @@ import { CustomerAddressComponent } from './customer-address/customer-address.co
 })
 export class AppComponent {
   title = 'PizzaApp';
+
+  addPizzaHandler(){
+    console.log('Adding pizza...');
+  }
+
 }

@@ -1,8 +1,12 @@
 <div>
-  <p>order-list works!</p>
+  <input type="button" value="Add Pizza" (click)="addPizzaHandler(length)" class="addPizzaButton" />
+  <input type="number" value="New Pizza Length" class="newPizzaLength" id="pizzaLength" title="New pizza Length" step="10" min="0" max="100" placeholder="20 cm"  #length />
   <ul>
-    <li *ngFor="let item of gusti">
-      <app-order-item [gusto]="item"></app-order-item>
+    <li *ngFor="let item of pizze; let i = index" style="display: flex; flex-direction: row;">
+
+        <app-order-item [index]="i" [inputPizza]="item"></app-order-item>
+        <input type="button" value="Remove" (click)="removePizzaHandler(i)" class="removePizzaButton"/>
+
     </li>
   </ul>
 </div>
