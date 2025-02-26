@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-time-list',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './time-list.component.html',
   styleUrls: ['./time-list.component.scss', '../app.time_list.scss'],
 })
@@ -27,8 +28,17 @@ export class TimeListComponent implements OnInit {
     '21:15',
     '21:30',
   ];
+  @Input() selectedTime: string = '';
 
-  constructor() {}
+  @Output() timeChange = new EventEmitter<string | null>();
 
-  ngOnInit(): void {}
+  onTimeChange(event: Event): void {
+    const inputElement = event.target as HTMLSelectElement;
+    if (inputElement) {
+      this.timeChange.emit(inputElement.value);
+    }
+  }
+  constructor() { }
+
+  ngOnInit(): void { }
 }

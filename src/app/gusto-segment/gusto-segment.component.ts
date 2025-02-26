@@ -1,7 +1,7 @@
 import { Input, OnInit } from '@angular/core';
-import { Gusto } from './../order-list/order-list.component';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Gusto } from '../models/Gusto';
 
 @Component({
   selector: 'app-gusto-segment',
@@ -36,12 +36,12 @@ export class GustoSegmentComponent implements OnInit {
     const letters = '0123456789ABCDEF';
     let color = '#';
     for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 1000%16)];
+      color += letters[Math.floor(Math.random() * 1000 % 16)];
     }
-    return color+"77";
+    return color + "77";
   }
   calculateWidth() {
     return (this._gusto.length / this.pizzaLength) * this.pizzaLength * 5;
   }
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

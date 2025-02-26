@@ -1,0 +1,41 @@
+<div style="align-self: center; justify-content: center; display: flex;flex-direction: column;">
+  <p>Inserisci la via del cliente:</p>
+  <input
+    type="text"
+    title="customer-address"
+    name="customer-address"
+    [(ngModel)]="CustomerAddress"
+    [value]="CustomerAddress"
+    (input)="onAddressChange($event)"
+  />
+  <p>Inserisci nome (o il nome sul campanello) del cliente:</p>
+
+  <input
+    type="text"
+    title="customer-name"
+    name="customer-name"
+    placeholder="Inserisci il nome qui..."
+    [(ngModel)]="CustomerName"
+    [value]="CustomerName"
+    (input)="onNameChange($event)"
+    />
+
+    <p>Inserisci il numero di telefono del cliente:</p>
+
+    <input
+      type="tel"
+      title="customer-phone-number"
+      name="customer-phone-number"
+      placeholder="Inserisci il numero di telefono qui..."
+      [(ngModel)]="CustomerPhoneNumber"
+      [value]="CustomerPhoneNumber"
+      (input)="onPhoneNumberChange($event)"
+      maxlength="10"
+      minlength="10"
+
+    onblur="this.value = this.value.replace(/[^0-9]/g, '');"
+      />
+
+
+
+</div>

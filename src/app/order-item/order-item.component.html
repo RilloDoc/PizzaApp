@@ -10,7 +10,7 @@
         </tr>
         <tr>
           <td>Lunghezza</td>
-          <td>{{ _pizza.length }} cm</td>
+          <td>{{ _pizza.lunghezza }} cm</td>
         </tr>
         <tr>
           <td>Rimangono:</td>
@@ -20,11 +20,11 @@
     </table>
   </div>
   <div style="display: flex; flex-direction: row; flex-grow: 1">
-    <div class="gusti-display" [ngStyle]="{ 'width': _pizza.length * 5 + 'px' }">
+    <div class="gusti-display" [ngStyle]="{ 'width': _pizza.lunghezza * 5 + 'px' }">
       <app-gusto-segment
-        *ngFor="let item of _pizza?.gusti; let i = index"
+        *ngFor="let item of _pizza?.gusto; let i = index"
         [inputGusto]="item"
-        [inputPizzaLength]="_pizza.length"
+        [inputPizzaLength]="_pizza.lunghezza"
         (click)="removeGusto(i)"
       />
       <input
@@ -33,7 +33,7 @@
         class="addGusto"
         (click)="toggleAddMode()"
         value="+ Gusto!"
-        [ngStyle]="{ 'width': pizzaRimanente * _pizza.length + 'px' }"
+        [ngStyle]="{ 'width': pizzaRimanente * _pizza.lunghezza + 'px' }"
       />
     </div>
     <div
@@ -41,7 +41,7 @@
       style="display: flex; flex-direction: column; width: 100px"
     >
       <p>Nuovo Gusto:</p>
-      <input type="number" placeholder="20 cm" step="10" [min]="0" [max]="_pizza.length" #gusto_length />
+      <input type="number" placeholder="20 cm" step="10" [min]="0" [max]="_pizza.lunghezza" #gusto_length />
       <input type="text" placeholder="Gusto!" #gusto_name />
       <input type="text" placeholder="Note..." #gusto_note />
       <input

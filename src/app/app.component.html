@@ -1,11 +1,13 @@
 <h1 style="text-align:center;">PizzaApp</h1>
 <div class="container">
   <div class="city_time_div">
-    <app-city-list></app-city-list>
+    <app-city-list [selectedCity]="CustomerCity" (cityChange)="onCustomerCityChange($event)"></app-city-list>
     <div class="divisore"></div>
-    <app-time-list></app-time-list>
+    <app-time-list [selectedTime]="CustomerTime" (timeChange)="onCustomerTimeChange($event)"></app-time-list>
   </div>
-  <app-customer-address></app-customer-address>
-
-  <app-order-list></app-order-list>
+<app-customer-name-address-phonenumber [CustomerAddress]="CustomerAddress"
+[CustomerName]="CustomerName" (customerAddressChange)="onCustomerAddressChange($event)"
+(customerNameChange)="onCustomerNameChange($event)" [CustomerPhoneNumber]="CustomerPhoneNumber" (customerPhoneNumberChange)="onCustomerPhoneNumberChange($event)"></app-customer-name-address-phonenumber>
+  <app-order-list [pizze]="Pizze"></app-order-list>
+  <input type="button" value="Send Order" (click)="orderPizza()" />
 </div>

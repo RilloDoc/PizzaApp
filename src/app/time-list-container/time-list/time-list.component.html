@@ -1,3 +1,4 @@
-<select>
+<select [(ngModel)]="selectedTime" (change)="onTimeChange($event)" [value]="selectedTime">
+  <option value="" disabled selected>Seleziona l'orario</option>
   <option *ngFor="let item of times">{{ item }}</option>
 </select>
