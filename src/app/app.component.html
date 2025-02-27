@@ -5,7 +5,9 @@
     <div class="divisore"></div>
     <app-time-list [selectedTime]="CustomerTime" (timeChange)="onCustomerTimeChange($event)"></app-time-list>
   </div>
-<app-customer-name-address-phonenumber [CustomerAddress]="CustomerAddress"
+<app-customer-name-address-phonenumber
+[CustomerCity]="CustomerCity"
+[CustomerAddress]="CustomerAddress"
 [CustomerName]="CustomerName" (customerAddressChange)="onCustomerAddressChange($event)"
 (customerNameChange)="onCustomerNameChange($event)" [CustomerPhoneNumber]="CustomerPhoneNumber" (customerPhoneNumberChange)="onCustomerPhoneNumberChange($event)"></app-customer-name-address-phonenumber>
   <app-order-list [pizze]="Pizze"></app-order-list>

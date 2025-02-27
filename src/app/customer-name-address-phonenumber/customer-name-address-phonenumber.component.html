@@ -1,13 +1,22 @@
-<div style="align-self: center; justify-content: center; display: flex;flex-direction: column;">
-  <p>Inserisci la via del cliente:</p>
-  <input
+<div style="align-self: center; justify-content: center; display: flex;flex-direction: column;flex-grow: 1;">
+  <div>
+    <p>Inserisci la via del cliente:</p>
+    <input
     type="text"
     title="customer-address"
     name="customer-address"
     [(ngModel)]="CustomerAddress"
     [value]="CustomerAddress"
     (input)="onAddressChange($event)"
-  />
+    (focus)="onFocus($event)"
+    debou
+    />
+<!-- auto expand the select on isAddreFocused -->
+
+    <div style="display: flex;flex-wrap: wrap; width: 400px;" *ngIf="isAddressFocused && autocomplete.length > 0 && CustomerAddress.length > 0">
+      <p style="font-size: 11px;font-style: bold;margin: 10px;" *ngFor="let item of autocomplete"  (click)="onAutoComplete(item)">{{item}}</p>
+    </div>
+  </div>
   <p>Inserisci nome (o il nome sul campanello) del cliente:</p>
 
   <input
@@ -18,6 +27,8 @@
     [(ngModel)]="CustomerName"
     [value]="CustomerName"
     (input)="onNameChange($event)"
+    (focus)="onBlur($event)"
+
     />
 
     <p>Inserisci il numero di telefono del cliente:</p>
@@ -32,6 +43,7 @@
       (input)="onPhoneNumberChange($event)"
       maxlength="10"
       minlength="10"
+      (focus)="onBlur($event)"
 
     onblur="this.value = this.value.replace(/[^0-9]/g, '');"
       />

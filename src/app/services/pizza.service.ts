@@ -29,5 +29,7 @@ export class PizzaService {
   addAddress(address: Address) {
     return this.http.post(`https://localhost:7221/api/Ordini/AddAddress/`, address)
   }
-
+  SearchAddress(address: string) {
+    return this.http.get(`https://localhost:7221/api/Ordini/SearchAddresses/${address}`)
+  }
 }
