@@ -1,4 +1,4 @@
-<div style="display: flex; flex-direction: row; min-width: 600px">
+<div style="display: flex; flex-direction: row; min-width: 600px;align-items: center;justify-content: space-evenly;">
   <div style="display: flex; flex-direction: column">
     <table class="custom-table">
       <thead>
@@ -19,7 +19,7 @@
       </tbody>
     </table>
   </div>
-  <div style="display: flex; flex-direction: row; flex-grow: 1">
+  <div style="display: flex; flex-direction: row; flex-grow: 1;justify-content: space-evenly; align-items: center;">
     <div class="gusti-display" [ngStyle]="{ 'width': _pizza.lunghezza * 5 + 'px' }">
       <app-gusto-segment
         *ngFor="let item of _pizza?.gusto; let i = index"
@@ -38,16 +38,28 @@
     </div>
     <div
       *ngIf="addtoggle"
-      style="display: flex; flex-direction: column; width: 100px"
+      style="display: flex; flex-direction: row;"
     >
       <p>Nuovo Gusto:</p>
-      <input type="number" placeholder="20 cm" step="10" [min]="0" [max]="_pizza.lunghezza" #gusto_length />
-      <input type="text" placeholder="Gusto!" #gusto_name />
-      <input type="text" placeholder="Note..." #gusto_note />
-      <input
+      <dx-number-box
+        [showSpinButtons]="true"
+        placeholder="20 cm"
+        [step]="10" [min]="0" [max]="_pizza.lunghezza"
+        [value]="length_text_input"
+        (onValueChanged)="onChangeLengthValue($event)"
+        format="# cm"
+       />
+
+      <dx-autocomplete
+      [dataSource]="autoCompleteGusti"
+      [searchTimeout]="80"
+      [minSearchLength]="0"
+      placeholder="Gusto!" [value]="gusto_text_input" (onValueChanged)="onChangeGustoValue($event)" />
+      <dx-text-box  placeholder="Note..." [value]="note_text_input" (onValueChanged)="onChangeNoteValue($event)"/>
+      <dx-text-box
         type="button"
         value="Aggiungi!"
-        (click)="addGusto(gusto_name, gusto_length, gusto_note)"
+        (click)="addGusto()"
       />
     </div>
   </div>

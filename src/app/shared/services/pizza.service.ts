@@ -41,4 +41,7 @@ export class PizzaService {
   GetCities() {
     return this.http.get(this.api + `GetCities`);
   }
+  GetGusti() {
+    return this.http.get(this.api + `GetGusti`);
+  }
 }

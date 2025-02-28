@@ -3,9 +3,9 @@
   justify-content: center;
   display: flex;
   flex: 1;
-  height: 48px;
-  border: 1px solid #444;
-  margin: 1px;
+
+  height: 62px;
+  border: 1px solid lightgray;
   border-radius: 10px;
   text-align: center;
 
@@ -16,6 +16,7 @@
   border-radius: 10px;
   padding: 5px;
   margin: 10px;
+  font-size: xx-small;
   align-self: center;
   justify-self: center;
 }

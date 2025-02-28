@@ -38,7 +38,7 @@ export class GustoSegmentComponent implements OnInit {
     for (let i = 0; i < 6; i++) {
       color += letters[Math.floor(Math.random() * 1000 % 16)];
     }
-    return color + "77";
+    return color + "AA";
   }
   calculateWidth() {
     return (this._gusto.length / this.pizzaLength) * this.pizzaLength * 5;

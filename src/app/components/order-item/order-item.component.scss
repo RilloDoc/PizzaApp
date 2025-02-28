@@ -1,12 +1,11 @@
 .gusti-display {
   display: flex;
   flex-direction: row;
-
   margin: 10px;
-  height: 50px;
+  height: 80px;
   // background-color: #f0f0f0;
-  border: 6px double gray;
-
+  border: 3px solid gray;
+  justify-content: space-evenly;
   border-radius: 10px;
   align-items: center;
   background-image: url('./../../../../public/pizza.jpg');
@@ -14,9 +13,11 @@
   background-size: 200px;
 }
 .addGusto {
-  border-radius: 0px;
+  border-radius: 5px;
   height: 50px;
-  border: 2px solid black;
+  margin:3px;
+  border: 1px solid #b3b3b3;
+  border-bottom: 1px solid #000;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   transition: all 0.08s ease; /* Aggiunge una transizione per rendere il cambiamento di stile più fluido */
@@ -34,19 +35,26 @@ table.custom-table {
   width: 170px;
   border-collapse: collapse;
   text-align: center;
+  border-radius: 15px;
+  overflow: hidden;
+  // border: 2px solid #bcbcbc;
+
 }
 table.custom-table td {
-  border: 1px solid #ddd;
   padding: 8px;
+  background-color: #bbbbbb;
+
 }
 table.custom-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #e4e4e4;
 }
 table.custom-table tr:hover {
-  background-color: #ddd;
+  background-color: #444;
+  // color: #f2f2f2;
 }
 table.custom-table th {
-  text-align: left;
-  background-color: #4caf50;
+  text-align: center;
+  background-color: #444;
   color: white;
+
 }

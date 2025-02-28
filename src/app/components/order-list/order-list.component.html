@@ -21,8 +21,8 @@
   <ul>
     <li *ngFor="let item of pizze; let i = index" style="display: flex; flex-direction: row;">
 
-        <app-order-item [index]="i" [inputPizza]="item"></app-order-item>
-        <input type="button" value="Remove" (click)="removePizzaHandler(i)" class="removePizzaButton"/>
+        <app-order-item [autoCompleteGusti]="autocompleteGusti" [index]="i" [inputPizza]="item"></app-order-item>
+        <dx-button text="Remove" (click)="removePizzaHandler(i)" class="removePizzaButton"/>
 
     </li>
   </ul>

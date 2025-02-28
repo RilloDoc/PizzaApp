@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { OrderItemComponent } from '../order-item/order-item.component';
 import { Pizza } from '../../models/Pizza';
 import { DxButtonModule, DxNumberBoxModule } from 'devextreme-angular';
+import { firstValueFrom } from 'rxjs';
+import { PizzaService } from '../../shared/services/pizza.service';
 
 @Component({
   selector: 'app-order-list',
@@ -13,9 +15,8 @@ import { DxButtonModule, DxNumberBoxModule } from 'devextreme-angular';
 export class OrderListComponent implements OnInit {
   @Input() pizze: Pizza[] = [];
   newPizzaLength = 0
+  autocompleteGusti: string[] = []
 
-  constructor() {
-  }
 
   addPizzaHandler(length: number) {
     const newPizzaLength = length;
@@ -43,7 +44,19 @@ export class OrderListComponent implements OnInit {
     }
   }
 
+  updateautocompleteGusti(newItems: string[]) {
+    this.autocompleteGusti = [...newItems]; // Crea una nuova istanza dell'array
+  }
+
+
+
+  constructor(private pizzaService: PizzaService) { this.performAddSearch() }
   ngOnInit(): void { }
+
+  async performAddSearch() {
+    const result: any = await firstValueFrom(this.pizzaService.GetGusti())
+    this.updateautocompleteGusti(result.map((gusti: any) => gusti));
+  }
 }
 
 
