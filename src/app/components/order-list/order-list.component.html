@@ -1,0 +1,29 @@
+<div>
+  <div style="display: flex;flex-direction: row;">
+    <div style="display: flex;flex-direction:row;align-items: center;justify-content: space-evenly;flex:.3;height: 75px;">
+      <dx-button icon="add" text="Aggiungi" value="Add Pizza" (onClick)="addPizzaHandler(newPizzaLength)"/>
+      <dx-number-box
+      [value]="newPizzaLength"
+      [step]="10"
+      [showSpinButtons]="true"
+      format="# cm"
+      [max]="100"
+      [min]="0"
+    hint="40"
+    (onValueChanged)="onValueChanged($event)"
+    style="width: 120px;"
+
+    />
+  </div>
+  <div style="display: flex;flex-direction:row;flex:.8"></div>
+</div>
+
+  <ul>
+    <li *ngFor="let item of pizze; let i = index" style="display: flex; flex-direction: row;">
+
+        <app-order-item [index]="i" [inputPizza]="item"></app-order-item>
+        <input type="button" value="Remove" (click)="removePizzaHandler(i)" class="removePizzaButton"/>
+
+    </li>
+  </ul>
+</div>

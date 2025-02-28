@@ -1,0 +1,7 @@
+<dx-select-box
+[value]="selectedTime"
+placeholder="Scegli l'ora"
+[items]="times"
+[showClearButton]="true"
+(onValueChanged)="onTimeChange($event)"
+/>

@@ -1,0 +1,27 @@
+.container {
+  border: 1px solid gray;
+
+  border-radius: 25px;
+  padding: 15px;
+  align-items: stretch;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+h1 {
+  color: black;
+}
+.city_time_div {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  // border: 1px solid black;
+  padding: 10px;
+}
+.divisore {
+  flex: 5;
+  height: 20px;
+  width: 50px;
+}
+

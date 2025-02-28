@@ -1,0 +1,54 @@
+<div style="display: flex; flex-direction: row; min-width: 600px">
+  <div style="display: flex; flex-direction: column">
+    <table class="custom-table">
+      <thead>
+      </thead>
+      <tbody>
+        <tr>
+          <th>N.</th>
+          <td>{{ index + 1 }}</td>
+        </tr>
+        <tr>
+          <td>Lunghezza</td>
+          <td>{{ _pizza.lunghezza }} cm</td>
+        </tr>
+        <tr>
+          <td>Rimangono:</td>
+          <td>{{ pizzaRimanente }} cm</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="display: flex; flex-direction: row; flex-grow: 1">
+    <div class="gusti-display" [ngStyle]="{ 'width': _pizza.lunghezza * 5 + 'px' }">
+      <app-gusto-segment
+        *ngFor="let item of _pizza?.gusto; let i = index"
+        [inputGusto]="item"
+        [inputPizzaLength]="_pizza.lunghezza"
+        (click)="removeGusto(i)"
+      />
+      <input
+        type="button"
+        *ngIf="!addtoggle && pizzaRimanente > 0"
+        class="addGusto"
+        (click)="toggleAddMode()"
+        value="+ Gusto!"
+        [ngStyle]="{ 'width': pizzaRimanente * _pizza.lunghezza + 'px' }"
+      />
+    </div>
+    <div
+      *ngIf="addtoggle"
+      style="display: flex; flex-direction: column; width: 100px"
+    >
+      <p>Nuovo Gusto:</p>
+      <input type="number" placeholder="20 cm" step="10" [min]="0" [max]="_pizza.lunghezza" #gusto_length />
+      <input type="text" placeholder="Gusto!" #gusto_name />
+      <input type="text" placeholder="Note..." #gusto_note />
+      <input
+        type="button"
+        value="Aggiungi!"
+        (click)="addGusto(gusto_name, gusto_length, gusto_note)"
+      />
+    </div>
+  </div>
+</div>

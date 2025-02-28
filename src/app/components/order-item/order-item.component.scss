@@ -1,0 +1,52 @@
+.gusti-display {
+  display: flex;
+  flex-direction: row;
+
+  margin: 10px;
+  height: 50px;
+  // background-color: #f0f0f0;
+  border: 6px double gray;
+
+  border-radius: 10px;
+  align-items: center;
+  background-image: url('./../../../../public/pizza.jpg');
+  background-repeat: repeat;
+  background-size: 200px;
+}
+.addGusto {
+  border-radius: 0px;
+  height: 50px;
+  border: 2px solid black;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transition: all 0.08s ease; /* Aggiunge una transizione per rendere il cambiamento di stile più fluido */
+}
+
+.addGusto:active {
+  border: 4px solid red; /* Cambia il colore del bordo quando il pulsante è premuto */
+  background-color: #f0f0f0; /* Cambia il colore di sfondo quando il pulsante è premuto */
+  transform: scale(
+    0.95
+  ); /* Rende il pulsante leggermente più piccolo quando è premuto */
+}
+
+table.custom-table {
+  width: 170px;
+  border-collapse: collapse;
+  text-align: center;
+}
+table.custom-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+table.custom-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+table.custom-table tr:hover {
+  background-color: #ddd;
+}
+table.custom-table th {
+  text-align: left;
+  background-color: #4caf50;
+  color: white;
+}

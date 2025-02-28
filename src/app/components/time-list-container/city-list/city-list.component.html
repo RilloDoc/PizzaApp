@@ -1,0 +1,7 @@
+<dx-select-box
+[value]="selectedCity"
+placeholder="Scegli la città"
+[items]="cities"
+[showClearButton]="true"
+(onValueChanged)="onCityChange($event)"
+/>

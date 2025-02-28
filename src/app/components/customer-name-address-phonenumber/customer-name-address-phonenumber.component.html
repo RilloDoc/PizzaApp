@@ -1,0 +1,50 @@
+<div style="align-self: center; justify-content: center; display: flex;flex-direction: column;flex-grow: 1;">
+  <div>
+    <p>Inserisci la via del cliente:</p>
+
+    <dx-autocomplete
+
+    [dataSource]="autocompleteAddress"
+    (input)="onAddressChange($event)"
+    placeholder="Inserisci la via del cliente..."
+    [(ngModel)]="CustomerAddress"
+    [value]="CustomerAddress"
+    [showClearButton]="true"
+
+    />
+    <!-- auto expand the select on isAddreFocused -->
+  </div>
+  <p>Inserisci nome (o il nome sul campanello) del cliente:</p>
+
+  <dx-autocomplete
+    [dataSource]="autocompleteCustomerName"
+    (input)="onCustomerNameChange($event)"
+    placeholder="Inserisci il nome qui..."
+    [(ngModel)]="CustomerName"
+    [value]="CustomerName"
+    [showClearButton]="true"
+
+    />
+
+    <p>Inserisci il numero di telefono del cliente:</p>
+
+    <dx-text-box
+      mode="tel"
+      title="customer-phone-number"
+      name="customer-phone-number"
+      placeholder="Inserisci il numero di telefono qui..."
+      [(ngModel)]="CustomerPhoneNumber"
+      [value]="CustomerPhoneNumber"
+      (input)="onPhoneNumberChange($event)"
+      [maxlength]="10"
+      [minlength]="10"
+      [showClearButton]="true"
+      mask="000 000 0000"
+      [inputAttr]="{ 'aria-label': 'Mask' }"
+
+      onblur="this.value = this.value.replace(/[^0-9]/g, '');"
+    />
+
+
+
+</div>
